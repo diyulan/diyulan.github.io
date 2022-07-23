@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hi, 幽蓝</title><meta name="keywords" content="幽蓝, ulan, diyulan, H5, CSS3, JS, JavaScript"><meta name="author" content="幽蓝"><meta name="copyright" content="幽蓝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="与有趣的灵魂相遇">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hi, 幽蓝">
+<meta property="og:url" content="https://diyulan.me/index.html">
+<meta property="og:site_name" content="Hi, 幽蓝">
+<meta property="og:description" content="与有趣的灵魂相遇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://diyulan.me/img/index_avatar.webp">
+<meta property="article:author" content="幽蓝">
+<meta property="article:tag" content="幽蓝, ulan, diyulan, H5, CSS3, JS, JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://diyulan.me/img/index_avatar.webp"><link rel="shortcut icon" href="/img/index_logo.webp"><link rel="canonical" href="https://diyulan.me/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hi, 幽蓝',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-07-23 15:00:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/index_avatar.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-solid fa-mug-saucer"></i><span> 项目</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/284b2c05.html"><span> free练习题</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/index_cover.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hi, 幽蓝</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-solid fa-mug-saucer"></i><span> 项目</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/284b2c05.html"><span> free练习题</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Hi, 幽蓝</h1><div id="site_social_icons"><a class="social-icon" href="https://twitter.com/diyuulan" rel="external nofollow noreferrer" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a><a class="social-icon" href="https://github.com/diyulan" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:cc2533334969@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fa-solid fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/archives/956f95b6.html" title="Sass样式预处理器学习笔记"><img class="post_bg" src="/img/cover_sass.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Sass样式预处理器学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/956f95b6.html" title="Sass样式预处理器学习笔记">Sass样式预处理器学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-19T09:11:06.000Z" title="发表于 2022-07-19 17:11:06">2022-07-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">介绍
+Sass是一款强化CSS的辅助工具，它在CSS语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能
+sass从第三代开始，放弃了缩进式风格，并且完全向下兼容普通的css代码，这一代的sass也被称为scss
+
+使用方法
+我使用的WebStorm编辑器，用它写scss不太理想。第一点输出css文件路径，如何配置，我是真的不懂。第二点安装autoprefixer插件，如何配置，同样不懂，感觉自己有点蠢(´-ω-&#96;)
+换成VSCode吧，安装Live Sass Compiler插件，它是scss预处理器用来编译成css文件，如果你见到两个相同名字的插件，老版本v3.0.0已经停止更新，当前新版本是v5.5.1，总之选最新版的就对了
+另外，再安装个Autoprefixer插件，它是用来辅助Live Sass Compiler插件，帮助你生成兼容前缀，比如万恶的IE，你不需要亲自写兼容前缀了，Autoprefixer插件会帮你做这件事
+两个插件完毕后，开始配置吧，首先打开Liv ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/4c33d5ee.html" title="epub电子书制作总结"><img class="post_bg" src="/img/cover_epub.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="epub电子书制作总结"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/4c33d5ee.html" title="epub电子书制作总结">epub电子书制作总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T22:43:12.000Z" title="发表于 2022-07-14 06:43:12">2022-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%86%E4%BA%AB/">分享</a></span></div><div class="content">epub简介简单点说，epub就是电子书，这个电子书有封面、插图、目录索引，而你只需要一款阅读器打开它。
+对比txt、word、pdf、markdown优势在哪？
+我喜欢把带有封面的电子书放到我的书柜上，但txt、word、markdown没有封面，下面是书柜展示：
+也就是说，我想制作带有封面的电子书放到我的书柜上，只剩下pdf、epub选择了；通常我在手机与电脑设备上阅读轻小说，如果是pdf格式的电子书，它在手机上的阅读体验相当糟糕，你需要不停地放大缩小来看每一段文字，请恕我拒绝(´･ω･&#96;)，相反epub在手机设备上体验极好，可以随意设置字体大小，还能看图，就决定用epub来制作电子书了
+
+电子阅读器
+我喜欢美丽的事物，最好书柜上的图书能展示封面，另外我很讨厌丑的阅读器，目前只用过AppleBooks(苹果设备专有的阅读器)、NeatReader(国人制作全平台epub阅读器)，下面是AppleBooks展示：
+Sigil和Calibre这两款是制作epub的工具，自然也能读取epub电子书，但它们不适合当书柜，给出的理由是不优雅。我知道看这篇文章的读者，有部分是实用主义（ ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/3c28277d.html" title="uni-app框架学习笔记"><img class="post_bg" src="/img/cover_uniApp.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="uni-app框架学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/3c28277d.html" title="uni-app框架学习笔记">uni-app框架学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-06T00:38:42.000Z" title="发表于 2022-07-06 08:38:42">2022-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">使用体验
+官网介绍：uni-app是一个使用Vue.js开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信&#x2F;支付宝&#x2F;百度&#x2F;头条&#x2F;飞书&#x2F;QQ&#x2F;快手&#x2F;钉钉&#x2F;淘宝）、快应用等多个平台
+uni-app作为跨平台一种解决方案，有预感坑会非常多，了解如何写代码和解决bug即可；官方文档很杂乱，可能是因为杂乱关系，部分文档未能及时更新，没办法保证全部API可以使用；官方推荐的教学视频，也不推荐看，理由是视频录制时间为19～20年，跟现在版本差别很大，硬要看也不是不行，尽量选年份离现在比较近的
+学习前需要的知识点
+html+css+js
+vue
+微信小程序
+后端（不会也没关系）
+scss（另一个名字sass）
+
+
+
+项目规范开发规范
+为了实现多端兼容，综合考虑编译速度、运行性能等因素，uni-app约定了如下开发规范
+页面文件遵循 Vue 单文件组件 (SFC) 规范(opens new window)
+组件标签靠近小程序规范
+接口能力（JS API）靠近微信 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/3c28277b.html" title="小程序学习笔记"><img class="post_bg" src="/img/cover_weChat.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小程序学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/3c28277b.html" title="小程序学习笔记">小程序学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-30T06:53:06.000Z" title="发表于 2022-06-30 14:53:06">2022-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">小程序特点
+用户不需要下载安装，点开即用，用完即走，实现用户当前需求的工具
+运行环境不同：网页运行在浏览器环境中，小程序运行在微信环境中
+API不同：小程序无法调用DOM和BOM的API，但小程序可以调用微信环境提供的API，例如：地理位置、扫码、支付
+
+项目结构
+默认项目文件
+pages：用来存放所有小程序页面，以单独文件夹存在
+utils：用来存放工具性质的模块
+app.js小程序项目的入口文件
+app.json：小程序项目的全局配置文件
+app.wxss：小程序项目的全局样式文件
+project.config.json：项目的配置文件
+sitemap.json：用来配置小程序及其页面是否允许被微信索引
+
+
+
+常用组件
+view：类似于HTML中的div，是一个块级元素
+block：类似于Vue中的template，是一个占位符
+scroll-view：滚动列表效果
+swiper和swiper-item：轮播图容器组件和轮播图item组件
+text：显示文字，selectable属性实现长按选中文本
+rich-text：通过nodes属性把HTML字符串渲染为对应的UI结构&lt; ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/fce06ce7.html" title="vue项目练习"><img class="post_bg" src="/img/cover_vuePractise.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue项目练习"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/fce06ce7.html" title="vue项目练习">vue项目练习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-24T12:34:18.000Z" title="发表于 2022-06-24 20:34:18">2022-06-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">网易云音乐项目项目说明
+简介：这个项目仅用于练习vue，功能并未完善，bug也非常多，目前已完成主页、歌单列表、音乐播放、歌词；如果你想运行项目，需要下载musicapp与NeteaseCloudMusicApi-master，分别注入依赖后同时运行；素材不下载也没关系，并不妨碍运行项目；如果你希望加入新功能，可以点击下方文档
+点我进入网易云音乐项目教学视频
+点我进入网易云音乐NodeJS版API文档
+如果链接失效，谷歌搜索网易云音乐NodeJS版API
+
+
+
+下载项目代码
+musicapp是项目代码，注入依赖后运行：npm run serve
+NeteaseCloudMusicApi-master是后端代码，配合上面文档使用，注入依赖后运行：node app.js
+素材是新建项目时才会用到的图片、图标
+百度网盘：https://pan.baidu.com/s/1r_1CzfI82FLNEpha6YeGdQ 提取码: 17cn阿里网盘：https://www.aliyundrive.com/s/DFPfeZPjAdM 提取码: 51ll
+
+
+
+脚手架创建musicapp项目
+创建mus ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/59d49f4.html" title="vue框架学习笔记"><img class="post_bg" src="/img/cover_vueJS.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue框架学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/59d49f4.html" title="vue框架学习笔记">vue框架学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-04T09:37:06.000Z" title="发表于 2022-06-04 17:37:06">2022-06-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">使用体验
+Vue是JS延伸出的一种框架，能在一个组件中写HTML、CSS、JS，它不需要操作DOM，而是通过渲染方式挂载到页面上，效率是不是会高一些呢？
+
+写代码也很爽，我想给一个功能添加点击事件，只需要给标签绑定@click，再到方法里写绑定事件的函数，这样就好了；对比原生js，你需要到html添加id属性，在回到js获取id，再给id绑定事件写函数，步骤是不是较为繁琐？
+
+说说不好的点，你需要记住大量指令，经常查阅文档是家常便饭的事
+
+
+安装过程与创建hello-world项目
+安装Node，选择长期维护版，自带npm
+12345// 查询node版本node -v// 查询npm版本npm -v
+
+通过npm指令安装nrm，nrm是管理npm的工具，由于npm服务器在国外，通过npm下载依赖会因为墙问题，导致项目运行不起来，所以需要nrm修改下载源，比如taobao镜像源在国内，下载速度会快一些
+12345678// 安装nrmnpm install nrm -g// 查看所有支持源nrm ls// 使用taobao镜像源nrm use taobao
+
+安装vue脚手架，用游戏方 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/284b2c05.html" title="freecodecamp练习"><img class="post_bg" src="/img/cover_freecodecamp.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="freecodecamp练习"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/284b2c05.html" title="freecodecamp练习">freecodecamp练习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-28T06:14:03.000Z" title="发表于 2022-04-28 14:14:03">2022-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">前言介绍下freecodecamp组织，以”帮助人们免费学习编程”为使命，创建了大量免费的编程教程，包括交互式课程、视频课程、文章等。看完HTML、CSS、JS理论知识后，我已经等不及想在freecodecamp实战啦！每次课题挑战成功，我会截图保存下来，总结自己遇到难题
+如果题目太难或不理解，抄作业总会吧？
+第一篇 响应式网页设计认证1.Tribute Page这是一个链接，点我查看致敬页
+2.Survey Form这是一个链接，点我查看调查表单
+3.Product Landing Page这是一个链接，点我查看产品登入页
+4.Technical Documentation Page这是一个链接，点我查看技术文档页
+5.Personal Portfolio这是一个链接，点我查看个人作品集展示页
+第二篇 JavaScript算法和数据结构1. 回文检查器123456789101112function palindrome(str) &#123;  // 除了英文数字，过滤其他符号  let a = str.match(/[a-zA-Z0-9]/g).join(&#x27;&#x27;) ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/eca48c1a.html" title="《JavaScript高级程序设计》读书笔记"><img class="post_bg" src="/img/cover_jsNotes.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《JavaScript高级程序设计》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/eca48c1a.html" title="《JavaScript高级程序设计》读书笔记">《JavaScript高级程序设计》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-15T03:46:07.000Z" title="发表于 2022-04-15 11:46:07">2022-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">
+学习方法：全部内容都要看，内容能理解换下一个，无法理解上b站看解说，找不到解说上Google看文章，依然无法理解，那么抱着疑问回到书中继续往下看吧
+
+第一章 简介1.2 JavaScript实现
+完整的JavaScript实现包含： 
+核心（ECMAScript）
+文档对象模型（DOM）
+浏览器对象模型（BOM）
+
+
+ECMAScript提供语言核心功能；DOM提供与网页内容交互的方法和接口；BOM提供与浏览器交互的方法和接口
+
+第二章 HTML中的JavaScript2.1 Script元素
+标签位置：为了避免加载JS文件导致页面空白，现代Web应用程序通常将所有JS引用放在元素中的页面内容后面
+
+延迟脚本：defer属性脚本在执行时不会影响页面加载，脚本会被延迟到整个页面都解析完毕后再运行；延迟脚本不一定总会按顺序执行，因此最好只包含一个脚本
+1&lt;script defer src=&quot;example1.js&quot;&gt;&lt;/script&gt;
+
+异步脚本：async属性脚本同样不会影响页面加载，脚本下载完不管页面是否解析完直接运行；同样不一定会按顺序执 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/7a37d2a6.html" title="八乡山之旅"><img class="post_bg" src="/img/content_baXiangMountain.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八乡山之旅"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/7a37d2a6.html" title="八乡山之旅">八乡山之旅</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-08T09:57:33.000Z" title="发表于 2022-04-08 17:57:33">2022-04-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></span></div><div class="content">
+前阵子搭建完网站想休息一会，正巧朋友问要不要去八乡山，我立马答应了( ^ω^ )听说他们以前骑自行车上山 🚴，看了眼窗外的路，路不仅陡还很远，甚至还开起玩笑问要不要再骑一次，他表示骑到一半开始后悔了😂
+来到山顶，风景极其美丽！明明太阳很大却不热，甚至还有一些冷。上面有凉亭和废弃建筑，不远处还有发电厂，以及不允许进入的军事管辖地。我们走了很长一段路，在某处休息时，看到一只很大的稚鸡飞过，吓了一跳 Σ（・□・；）
+后来想去看瀑布，可惜车子快没油了，只能匆忙下山返程。偶尔跟朋友来一场说走就走的旅行，不管去哪都非常有意思 :)
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/archives/ea5c78aa.html" title="奥睿科拓展坞与M2三星硬盘体验"><img class="post_bg" src="/img/content_DDS1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="奥睿科拓展坞与M2三星硬盘体验"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/ea5c78aa.html" title="奥睿科拓展坞与M2三星硬盘体验">奥睿科拓展坞与M2三星硬盘体验</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-06T21:54:21.000Z" title="发表于 2022-04-07 05:54:21">2022-04-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%86%E4%BA%AB/">分享</a></span></div><div class="content">Macbook系统盘256G是真的不够用╮(╯▽╰)╭趁打折期间入了奥睿科拓展坞，里边内置硬盘盒，桌面清爽党狂喜
+
+拆包，扭螺丝，贴散热胶（赠送的）
+
+体验方面：
+
+M2三星读写600M左右，传输文件400M&#x2F;s，没办法发挥硬盘性能
+解决了macbook接口问题，缺点输入接口只有一个，比方说你没办法用USB口连接电脑
+拓展坞是靠金属散热，没有风扇散热，正常使用是足够的，除非频繁使用温度会飙到50°+
+不知道为什么拓展坞，偶尔会发出“滴滴”声😅，虽说大部分时间很安静就是了
+罗技无线鼠标有时会卡顿，不少网友表示是苹果的锅？
+除了“滴滴”声，鼠标有时卡顿，整体很满意
+
+Mac罗技无线鼠标卡顿解决方法第一个方案：系统设置改网络服务顺序，蓝牙PAN调到顶，本质上是减少干扰（没用）第二个方案：下载厂家提供的驱动，罗技无线鼠标用的是USB微型接收器，免驱动无蓝牙显示（没用）第三个方案：2.4GWiFi与蓝牙使用的频段产生干扰，无线鼠标卡顿真正原因（有用）
+
+WiFi设置成5G信号频段，两者互不干扰，但我家的路由器老旧无5G信号频段，下面有另一种解决方法
+电脑接上网线，电脑关闭WiFi连接 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/index_avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">幽蓝</div><div class="author-info__description">与有趣的灵魂相遇</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://twitter.com/diyuulan" rel="external nofollow noreferrer" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a><a class="social-icon" href="https://github.com/diyulan" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:cc2533334969@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fa-solid fa-envelope"></i></a></div></div><div class="sticky_layout"></div></div></main><footer id="footer" style="background: rgb(105, 105, 105)"><div id="footer-wrap"><div class="copyright">&copy;2022 By 幽蓝</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">The purpose of life is to enjoy every moment🍺</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7677924",
+      "name": "电池",
+      "font_class": "dianchi",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "11372790",
+      "name": "热门",
+      "font_class": "remen",
+      "unicode": "e8c9",
+      "unicode_decimal": 59593
+    },
+    {
+      "icon_id": "11756377",
+      "name": "送货",
+      "font_class": "V",
+      "unicode": "e721",
+      "unicode_decimal": 59169
+    }
+  ]
+}

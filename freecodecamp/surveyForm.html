@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>survey form</title>
+  <link rel="stylesheet" href="css/surveyForm.css">
+</head>
+<body>
+  <div id="container">
+    <header class="header">
+      <h1 id="title">freeCodeCamp Survey Form</h1>
+      <p id="description">Thank you for taking the time to help us improve the platform</p>
+    </header>
+    <form id="survey-form" action="">
+      <div class="form-group">
+        <label for="name" id="name-label">用户名</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="请输入你的用户名" required>
+      </div>
+      <div class="form-group">
+        <label for="email" id="email-label">邮箱</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="请输入你的邮箱" required>
+      </div>
+      <div class="form-group">
+        <label for="number" id="number-label">年龄</label>
+        <input type="number" name="age" id="number" min="10" max="99" class="form-control" placeholder="年龄">
+      </div>
+      <div class="form-group">
+        <p>哪个选项更符合你？</p>
+        <select name="role" id="dropdown" class="form-control form-select">
+          <option value disabled selected>请选择目前的职业</option>
+          <option value="student">学生</option>
+          <option value="job">已工作</option>
+          <option value="learner">初学者</option>
+          <option value="preferNo">保密</option>
+          <option value="other">其他职业</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <p>你会向朋友推荐freeCodeCamp吗？</p>
+        <label>
+          <input type="radio" name="user-recommend" class="input-radio" value="definitely" checked>
+          下次一定
+        </label>
+        <label>
+          <input type="radio" name="user-recommend" class="input-radio" value="maybe">
+          有可能
+        </label>
+        <label>
+          <input type="radio" name="user-recommend" class="input-radio" value="not-sure">
+          不推荐
+        </label>
+      </div>
+      <div class="form-group">
+        <p>你希望看到哪些改善？</p>
+        <label>
+          <input type="checkbox" name="prefer" class="input-checkbox" value="front-end-projects">
+          前端项目
+        </label>
+        <label>
+          <input type="checkbox" name="prefer" class="input-checkbox" value="back-end-projects">
+          后端项目
+        </label>
+        <label>
+          <input type="checkbox" name="prefer" class="input-checkbox" value="data-visualization">
+          数据可视化
+        </label>
+      </div>
+      <div class="form-group">
+        <p>有什么更好的建议吗？</p>
+        <textarea name="comment" id="comment" cols="30" rows="10" class="input-textarea" placeholder="请在这里输入你的内容"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" id="submit" class="submit-button">点击提交</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

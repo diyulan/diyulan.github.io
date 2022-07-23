@@ -1,0 +1,611 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>vue框架学习笔记 | Hi, 幽蓝</title><meta name="keywords" content="幽蓝, ulan, diyulan, H5, CSS3, JS, JavaScript"><meta name="author" content="幽蓝"><meta name="copyright" content="幽蓝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="使用体验 Vue是JS延伸出的一种框架，能在一个组件中写HTML、CSS、JS，它不需要操作DOM，而是通过渲染方式挂载到页面上，效率是不是会高一些呢？  写代码也很爽，我想给一个功能添加点击事件，只需要给标签绑定@click，再到方法里写绑定事件的函数，这样就好了；对比原生js，你需要到html添加id属性，在回到js获取id，再给id绑定事件写函数，步骤是不是较为繁琐？  说说不好的点，你需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue框架学习笔记">
+<meta property="og:url" content="https://diyulan.me/archives/59d49f4.html">
+<meta property="og:site_name" content="Hi, 幽蓝">
+<meta property="og:description" content="使用体验 Vue是JS延伸出的一种框架，能在一个组件中写HTML、CSS、JS，它不需要操作DOM，而是通过渲染方式挂载到页面上，效率是不是会高一些呢？  写代码也很爽，我想给一个功能添加点击事件，只需要给标签绑定@click，再到方法里写绑定事件的函数，这样就好了；对比原生js，你需要到html添加id属性，在回到js获取id，再给id绑定事件写函数，步骤是不是较为繁琐？  说说不好的点，你需要">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://diyulan.me/img/cover_vueJS.webp">
+<meta property="article:published_time" content="2022-06-04T09:37:06.000Z">
+<meta property="article:modified_time" content="2022-07-19T08:04:20.573Z">
+<meta property="article:author" content="幽蓝">
+<meta property="article:tag" content="幽蓝, ulan, diyulan, H5, CSS3, JS, JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://diyulan.me/img/cover_vueJS.webp"><link rel="shortcut icon" href="/img/index_logo.webp"><link rel="canonical" href="https://diyulan.me/archives/59d49f4"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue框架学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-19 16:04:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/index_avatar.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-solid fa-mug-saucer"></i><span> 项目</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/284b2c05.html"><span> free练习题</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover_vueJS.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hi, 幽蓝</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-solid fa-mug-saucer"></i><span> 项目</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/284b2c05.html"><span> free练习题</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vue框架学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-04T09:37:06.000Z" title="发表于 2022-06-04 17:37:06">2022-06-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-19T08:04:20.573Z" title="更新于 2022-07-19 16:04:20">2022-07-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.6k</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vue框架学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h2><ol>
+<li><p>Vue是JS延伸出的一种框架，能在一个组件中写HTML、CSS、JS，它不需要操作DOM，而是通过渲染方式挂载到页面上，效率是不是会高一些呢？</p>
+</li>
+<li><p>写代码也很爽，我想给一个功能添加点击事件，只需要给标签绑定@click，再到方法里写绑定事件的函数，这样就好了；对比原生js，你需要到html添加id属性，在回到js获取id，再给id绑定事件写函数，步骤是不是较为繁琐？</p>
+</li>
+<li><p>说说不好的点，你需要记住大量指令，经常查阅文档是家常便饭的事</p>
+</li>
+</ol>
+<h2 id="安装过程与创建hello-world项目"><a href="#安装过程与创建hello-world项目" class="headerlink" title="安装过程与创建hello-world项目"></a>安装过程与创建hello-world项目</h2><ol>
+<li><p>安装Node，选择长期维护版，自带npm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 查询node版本</span><br><span class="line">node -v</span><br><span class="line"></span><br><span class="line">// 查询npm版本</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过npm指令安装nrm，nrm是管理npm的工具，由于npm服务器在国外，通过npm下载依赖会因为墙问题，导致项目运行不起来，所以需要nrm修改下载源，比如taobao镜像源在国内，下载速度会快一些</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 安装nrm</span><br><span class="line">npm install nrm -g</span><br><span class="line"></span><br><span class="line">// 查看所有支持源</span><br><span class="line">nrm ls</span><br><span class="line"></span><br><span class="line">// 使用taobao镜像源</span><br><span class="line">nrm use taobao</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装vue脚手架，用游戏方式来理解，vue官方开局送你一套强力装备，让你能开局直接打Boss</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 删除旧的vue脚手架，第一次安装vue脚手，请跳过它</span><br><span class="line">npm uninstall vue-cli -g</span><br><span class="line"></span><br><span class="line">// 删除旧的vue脚手架，第一次安装vue脚手，请跳过它</span><br><span class="line">yarn global remove vue-cli</span><br><span class="line"></span><br><span class="line">// 安装vue脚手架</span><br><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>控制台指令，实在不懂上google</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 返回上一级文件</span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">// 默认根目录，进入到桌面</span><br><span class="line">cd Desktop</span><br><span class="line"></span><br><span class="line">// 默认根目录，进入到文稿</span><br><span class="line">cd Documents</span><br><span class="line"></span><br><span class="line">// 清一下控制台</span><br><span class="line">clear</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建vue项目，我习惯在文稿中生成项目，当然你也可以在桌面或其他地方生成；如果你对vue-cli内容感兴趣，可到vue官网查看<a target="_blank" rel="noopener external nofollow noreferrer" href="https://cli.vuejs.org/zh/guide/creating-a-project.html">请点击我跳转</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 默认根目录，进入到文稿，文稿指mac电脑，win电脑需要指定cdef盘</span><br><span class="line">Mac: cd Documents</span><br><span class="line">windows: 进入d盘，在d盘的地址栏输入cmd按下回车，会生成d盘路径的命令窗口；d盘鼠标右键也会生成d盘路径的命令窗口</span><br><span class="line"></span><br><span class="line">// 创建新项目，项目名叫hello-world</span><br><span class="line">vue create hello-world</span><br><span class="line"></span><br><span class="line">// 学习vue基础，默认vue3版本够用了</span><br><span class="line">// 手动选择功能则是添加额外插件，例如TypeScript、Router、Vuex...</span><br><span class="line">Default([Vue 3]babel, eslint)</span><br><span class="line"></span><br><span class="line">// 项目生成后，进入hello-world项目</span><br><span class="line">cd hello-world</span><br><span class="line"></span><br><span class="line">// 启动你的项目吧 XD</span><br><span class="line">npm run serve</span><br><span class="line"></span><br><span class="line">// 点击链接查看页面</span><br><span class="line">Local: http://localhost:8080/ </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>项目文件说明</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public</td>
+<td>项目入口文件，存放index.html文件，通常不做任何修改</td>
+</tr>
+<tr>
+<td>src</td>
+<td>写代码的地方</td>
+</tr>
+<tr>
+<td>src&#x2F;assets</td>
+<td>存放静态资源，比如背景图、图标等图片资源，再或者公共样式文件</td>
+</tr>
+<tr>
+<td>src&#x2F;components</td>
+<td>存放抽离出来的公共组件</td>
+</tr>
+<tr>
+<td>src&#x2F;router</td>
+<td>路由管理</td>
+</tr>
+<tr>
+<td>src&#x2F;store</td>
+<td>全局状态管理文件</td>
+</tr>
+<tr>
+<td>src&#x2F;views</td>
+<td>存放比较大的视图级组件</td>
+</tr>
+<tr>
+<td>src&#x2F;App.vue</td>
+<td>项目根组件，所有组件通过路由引入到App.vue才能在页面中显示出来</td>
+</tr>
+<tr>
+<td>src&#x2F;main.js</td>
+<td>项目入口文件，webpack打包时会以main.js为起点</td>
+</tr>
+<tr>
+<td>.gitignore</td>
+<td>告诉git要忽略项目中的哪些文件或文件夹，主要用在上传项目到git仓库</td>
+</tr>
+<tr>
+<td>babel.config.js</td>
+<td>项目范围的配置，支持es6、es7等语法，最新语法能转换成浏览器识别的老式语言</td>
+</tr>
+<tr>
+<td>jsconfig.json</td>
+<td>对JS项目目录提供个性化支持：比如路径短写、引入文件自动完成等，提升开发体</td>
+</tr>
+<tr>
+<td>package.json</td>
+<td>项目描述文件，能了解到项目版本号、依赖等信息，记录版本范围</td>
+</tr>
+<tr>
+<td>package-lock.json</td>
+<td>项目所依赖的第三方包的版本号，记录精确版本号</td>
+</tr>
+<tr>
+<td>README</td>
+<td>项目说明文档</td>
+</tr>
+<tr>
+<td>vue.config.js</td>
+<td>不怎么了解，好像是用来修改webpack配置</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>github下载vue项目运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// cnpm是淘宝团队提供的一个npm国内替代工具，请先安装cnpm</span><br><span class="line">npm install -g cnpm</span><br><span class="line"></span><br><span class="line">// 进入项目</span><br><span class="line">cd 项目文件名</span><br><span class="line"></span><br><span class="line">// 安装依赖</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">// 如果npm安装依赖失败，换成cnpm再试试</span><br><span class="line">cnpm install</span><br><span class="line"></span><br><span class="line">// 运行项目，要么dev要么serve</span><br><span class="line">// 不知道用哪个，看项目文档或package.js文件的&quot;scripts&quot;</span><br><span class="line">npm run dev或serve</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="vue指令"><a href="#vue指令" class="headerlink" title="vue指令"></a>vue指令</h2><ol>
+<li>常用指令<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>v-bind</td>
+<td>绑定属性</td>
+<td><code>&lt;a :href=&quot;url&quot;&gt; ... &lt;/a&gt;</code></td>
+</tr>
+<tr>
+<td>v-on</td>
+<td>绑定事件</td>
+<td><code>&lt;a @click=&quot;doSomething&quot;&gt; ... &lt;/a&gt;</code></td>
+</tr>
+<tr>
+<td>v-if</td>
+<td>判断</td>
+<td><code>&lt;p v-if=&quot;seen&quot;&gt;现在你看到我了&lt;/p&gt;</code></td>
+</tr>
+<tr>
+<td>v-show</td>
+<td>判断</td>
+<td><code>&lt;h1 v-show=&quot;ok&quot;&gt;Hello!&lt;/h1&gt;</code></td>
+</tr>
+<tr>
+<td>v-for</td>
+<td>循环</td>
+<td><code>&lt;li v-for=&quot;item in items&quot;&gt;&lt;/li&gt;</code></td>
+</tr>
+<tr>
+<td>v-model</td>
+<td>双向绑定</td>
+<td><code>&lt;input v-model=&quot;message&quot; placeholder=&quot;edit me&quot; /&gt;</code></td>
+</tr>
+<tr>
+<td>v-once</td>
+<td>只渲染一次</td>
+<td><code>&lt;span v-once&gt;这个将不会改变: &#123;&#123; msg &#125;&#125;&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td>v-html</td>
+<td>按普通HTML插入</td>
+<td><code>&lt;div v-html=&quot;&#39;&lt;h1&gt;Hello World&lt;/h1&gt;&#39;&quot;&gt;&lt;/div&gt;</code></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<p>v-if和v-show区别，如果是频繁切换显示，v-show性能影响较小<br>v-for第一个参数是值，第二个参数是索引；需配合:key使用否则报错</p>
+</blockquote>
+<h2 id="vue方法"><a href="#vue方法" class="headerlink" title="vue方法"></a>vue方法</h2><ol>
+<li>methods：方法，用来写方法的地方</li>
+<li>computed：计算属性，methods和computed都能用来计算，区别在computed有缓存</li>
+<li>watch：侦听器，用来感应数据变化，第一个参数新数据，第二个参数旧数据</li>
+</ol>
+<h2 id="class与style绑定"><a href="#class与style绑定" class="headerlink" title="class与style绑定"></a>class与style绑定</h2><ol>
+<li>第一种class写法，通常用来增删、切换class<br><code>&lt;div :class=&quot;msg&quot;&gt;hello, 幽蓝&lt;/div&gt;</code></li>
+<li>第二种class写法，通常用来显示隐藏样式，active表示class名，isActive设置true表示显示<br><code>&lt;div :class=&quot;&#123;active: isActive&#125;&quot;&gt;hello，幽蓝&lt;/div&gt;</code></li>
+<li>第一种style绑定，通常绑定到对象，在styleObject上写样式更直观易懂<br><code>&lt;div :style=&quot;styleObject&quot;&gt;&lt;/div&gt;</code></li>
+<li>第二种style绑定，直接写上去，阅读体验可能不太好<br><code>&lt;div :style=&quot;&#123; color: activeColor, fontSize: fontSize + &#39;px&#39; &#125;&quot;&gt;&lt;/div&gt;</code></li>
+</ol>
+<blockquote>
+<p>补充说明：script写样式推荐用驼峰形式，短横杠形式需要添加引号怪麻烦的</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    styleObj: &#123;</span><br><span class="line">      backgroundColor: &quot;purple&quot;,</span><br><span class="line">      &quot;font-size&quot;: &quot;24px&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件传值与多个处理函数"><a href="#事件传值与多个处理函数" class="headerlink" title="事件传值与多个处理函数"></a>事件传值与多个处理函数</h2><ol>
+<li>事件传递参数，如果是传递event对象需要添加$符号<br><code>&lt;h1 @click=&quot;addNumEventTwo(10, $event)&quot;&gt;count: &#123;&#123; num &#125;&#125;&lt;/h1&gt;</code></li>
+<li>事件绑定多个处理函数，用分号隔开，以及使用函数调用<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 :style=&quot;&#123;backgroundColor:color&#125;&quot;&gt;count: &#123;&#123; num &#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;input type=&quot;submit&quot; @click=&quot;addNumEvent(10);changeColor(&#x27;yellow&#x27;)&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><ol>
+<li><p>事件修饰符</p>
+<table>
+<thead>
+<tr>
+<th align="left">事件修饰符</th>
+<th align="left">说明</th>
+<th align="left">代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">.stop</td>
+<td align="left">阻止事件冒泡</td>
+<td align="left"><code>&lt;a @click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;</code></td>
+</tr>
+<tr>
+<td align="left">.prevent</td>
+<td align="left">阻止默认事件</td>
+<td align="left"><code>&lt;form @submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;</code></td>
+</tr>
+<tr>
+<td align="left">.capture</td>
+<td align="left">添加事件捕获模式</td>
+<td align="left"><code>&lt;div @click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td align="left">.self</td>
+<td align="left">自身触发处理函数</td>
+<td align="left"><code>&lt;div @click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td align="left">.once</td>
+<td align="left">只触发一次</td>
+<td align="left"><code>&lt;a @click.once=&quot;doThis&quot;&gt;&lt;/a&gt;</code></td>
+</tr>
+<tr>
+<td align="left">.passive</td>
+<td align="left">滚动时立即触发</td>
+<td align="left"><code>&lt;div @scroll.passive=&quot;onScroll&quot;&gt;...&lt;/div&gt;</code></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>按键修饰符<br>.enter：按下回车键触发处理函数<code>&lt;input type=&quot;text&quot; @keydown=&quot;searchEvent&quot;&gt;</code><br>.tab<br>.delete<br>.esc<br>.space<br>.up<br>.down<br>.left<br>.right</p>
+</li>
+<li><p>系统修饰符<br>.ctrl<br>.alt<br>.shift<br>.meta</p>
+</li>
+<li><p>鼠标修饰符<br>.left<br>.right<br>.middle</p>
+</li>
+<li><p>表单修饰符<br>.lazy：失去焦点才会执行<code>v-model.lazy=&quot;searchKey&quot;</code><br>.number：转为数字<br>.trim：去掉前后空格</p>
+</li>
+</ol>
+<h2 id="父子组件导入导出"><a href="#父子组件导入导出" class="headerlink" title="父子组件导入导出"></a>父子组件导入导出</h2><ol>
+<li><p>template标签导入HelloWorld子组件，单、双标签使用上没区别；两个标签并不会覆盖，而是以复用形式存在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;HelloWorld/&gt;</span><br><span class="line">  &lt;HelloWorld&gt;&lt;/HelloWorld&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件导入说明</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// @等同于/src</span><br><span class="line">import HelloWorld from &quot;@/components/HelloWorld.vue&quot;;</span><br><span class="line"></span><br><span class="line">// .等同于当前路径</span><br><span class="line">import App from &quot;./App.vue&quot;;</span><br><span class="line"></span><br><span class="line">// ..等同于上一级路径</span><br><span class="line">import HomeView from &quot;../views/HomeView.vue&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件导出说明，建议首字母大写，且组件名与文件名是相同的；components是注册组件，比如导入HelloWorld组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 导出名为HomeView的组件，包含注册HelloWorld</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;HomeView&quot;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    HelloWorld</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><ol>
+<li>父组件将数据传递给子组件，由props来接收，同时还具有校验数据的功能<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">    // 基础的类型检查 (`null` 和 `undefined` 值会通过任何类型验证)</span><br><span class="line">    propA: Number,</span><br><span class="line">    // 多个可能的类型</span><br><span class="line">    propB: [String, Number],</span><br><span class="line">    // 必填的字符串</span><br><span class="line">    propC: &#123;</span><br><span class="line">      type: String,</span><br><span class="line">      required: true</span><br><span class="line">    &#125;,</span><br><span class="line">    // 带有默认值的数字</span><br><span class="line">    propD: &#123;</span><br><span class="line">      type: Number,</span><br><span class="line">      default: 100</span><br><span class="line">    &#125;,</span><br><span class="line">    // 带有默认值的对象</span><br><span class="line">    propE: &#123;</span><br><span class="line">      type: Object,</span><br><span class="line">      // 对象或数组的默认值必须从一个工厂函数返回</span><br><span class="line">      default() &#123;</span><br><span class="line">        return &#123; message: &#x27;hello&#x27; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // 自定义验证函数</span><br><span class="line">    propF: &#123;</span><br><span class="line">      validator(value) &#123;</span><br><span class="line">        // 这个值必须与下列字符串中的其中一个相匹配</span><br><span class="line">        return [&#x27;success&#x27;, &#x27;warning&#x27;, &#x27;danger&#x27;].includes(value)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // 具有默认值的函数</span><br><span class="line">    propG: &#123;</span><br><span class="line">      type: Function,</span><br><span class="line">      // 与对象或数组的默认值不同，这不是一个工厂函数——这是一个用作默认值的函数</span><br><span class="line">      default() &#123;</span><br><span class="line">        return &#x27;Default function&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h2><ol>
+<li>beforeCreate()：初始化数据之前</li>
+<li>created()：初始化数据之后</li>
+<li>beforeMount()：挂载渲染之前</li>
+<li>mounted()：挂载渲染之后</li>
+<li>beforeUpdate()：更新之前</li>
+<li>updated()：更新之后</li>
+<li>beforeUnmount()：销毁之前</li>
+<li>unmounted()：销毁之后</li>
+</ol>
+<h2 id="组合式API"><a href="#组合式API" class="headerlink" title="组合式API"></a>组合式API</h2><ol>
+<li>通常我们在data写数据，methods写方法，这种分开式写法，在后期修改某块功能，你需要上下反复查找，最怕不小心修改到别人的代码或其他功能；setup则是集中式写法，它使数据、方法等集中写在一块，像传统JS一样</li>
+<li>ref是定义单个数据，相当于data写数据；而定义函数，相当于methods内定义函数，另外说一下，setup不能用this找数据，而是用.value来找<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div @click=&quot;changeNum&quot;&gt;点我加十&#123;&#123;num&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;ref&#125; from &#x27;vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;HelloWorld&quot;,</span><br><span class="line">  setup()&#123;</span><br><span class="line">    const num = ref(0);</span><br><span class="line">    function changeNum()&#123;</span><br><span class="line">      num.value += 10;</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123;num, changeNum&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>如果说ref()是定义单个数据，那么reactive()就是用来定义多个数据；某一天，我想把名字反转后显示，可以用computed属性来帮助我计算结果，然后以插值形式来展示结果，假如不用computed属性，那么它就不会计算结果，而是获取reverseUsername的值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;用户名：&#123;&#123; user.username &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;h1&gt;年龄：&#123;&#123; user.age &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;h1&gt;反转：&#123;&#123; user.reverseUsername &#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; ref, reactive, computed &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;HelloWorld&quot;,</span><br><span class="line">  setup() &#123;</span><br><span class="line">    const user = reactive(&#123;</span><br><span class="line">      username: &quot;幽蓝&quot;,</span><br><span class="line">      age: 9,</span><br><span class="line">      interest: &quot;swim&quot;,</span><br><span class="line">      reverseUsername: computed(() =&gt; &#123;</span><br><span class="line">        return user.username.split(&quot;&quot;).reverse().join(&quot;&quot;);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">    return &#123; user &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>toRefs用来解构对象，可以使插值不必打点调用，缺点是同名覆盖；如果想点击后修改对象的值，按JS方式来写<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;用户名：&#123;&#123; username &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;h1 @click=&quot;changeAge&quot;&gt;年龄：&#123;&#123; age &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;h1&gt;反转：&#123;&#123; reverseUsername &#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; reactive, computed, toRefs &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;HelloWorld&quot;,</span><br><span class="line">  setup() &#123;</span><br><span class="line">    const user = reactive(&#123;</span><br><span class="line">      username: &quot;幽蓝&quot;,</span><br><span class="line">      age: 9,</span><br><span class="line">      interest: &quot;swim&quot;,</span><br><span class="line">      reverseUsername: computed(() =&gt; &#123;</span><br><span class="line">        return user.username.split(&quot;&quot;).reverse().join(&quot;&quot;);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">    function changeAge() &#123;</span><br><span class="line">      user.age = 20;</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123; ...toRefs(user), changeAge &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>watch与watchEffect看场景灵活使用吧<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1 @click=&quot;changeAge&quot;&gt;年龄：&#123;&#123; age &#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; ref, watch, watchEffect &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;HelloWorld&quot;,</span><br><span class="line">  setup() &#123;</span><br><span class="line">    const age = ref(9);</span><br><span class="line">    // 监听指定属性，当属性变化时执行函数，可以获取新值和旧值</span><br><span class="line">    watch(age, (newAge, prevAge) =&gt; &#123;</span><br><span class="line">      console.log(&quot;watch：&quot; + age.value);</span><br><span class="line">      console.log(newAge , prevAge);</span><br><span class="line">    &#125;);</span><br><span class="line">    // 不需要监听指定属性，组件初始化前会自动执行一次，当属性变化时执行函数</span><br><span class="line">    watchEffect(() =&gt; &#123;</span><br><span class="line">      console.log(&quot;watchEffect：&quot; + age.value);</span><br><span class="line">    &#125;);</span><br><span class="line">    function changeAge() &#123;</span><br><span class="line">      age.value++;</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123; age, changeAge &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>setup参数：第一个参数props，包含父组件传递给子组件所有数据，第二个参数context暴露一些属性方法，包含attrs、slots、emit<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 父组件</span><br><span class="line">&lt;HelloWorld :username=&quot;username&quot; :age=&quot;age&quot;/&gt;</span><br><span class="line"></span><br><span class="line">data()&#123;</span><br><span class="line">  return&#123;</span><br><span class="line">    username: &#x27;幽蓝&#x27;,</span><br><span class="line">    age: 9</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">&lt;h1&gt;username: &#123;&#123;username&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;age: &#123;&#123;age&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;description: &#123;&#123;description&#125;&#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">// props接收父组件传递给子组件所有数据</span><br><span class="line">props: [&quot;username&quot;, &quot;age&quot;],</span><br><span class="line"></span><br><span class="line">// setup的props是响应式数据，不要解构；context是js对象，可以解构</span><br><span class="line">setup(props, context) &#123;</span><br><span class="line">  const description = ref(props.username + &quot;年龄是&quot; + props.age);</span><br><span class="line">  console.log(context);</span><br><span class="line">  return &#123; description &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>provide提供数据，inject接收数据，主要解决props深层嵌套问题<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 父组件</span><br><span class="line">import &#123; reactive, provide &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">setup() &#123;</span><br><span class="line">  const student = reactive(&#123;</span><br><span class="line">    name: &quot;张三&quot;,</span><br><span class="line">    classname: &quot;三年1班&quot;</span><br><span class="line">  &#125;);</span><br><span class="line">  // 第一个参数是key，可以取任意名字，提供给inject接收</span><br><span class="line">  // 第二个参数是你想传的值，提供给第一个参数</span><br><span class="line">  provide(&quot;studentA&quot;, student);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">&lt;h1&gt;学生&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;name: &#123;&#123; name &#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;classname: &#123;&#123; classname &#125;&#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">import &#123; inject &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">props: [&quot;username&quot;, &quot;age&quot;],</span><br><span class="line">setup() &#123;</span><br><span class="line">  const student = inject(&#x27;studentA&#x27;)</span><br><span class="line">  return &#123; ...student &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ol>
+<li><p>vue2脚手架自带路由安装，vue3新推出vite构建工具没有路由，开始安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 用vite构建vue项目，名字取vue3router</span><br><span class="line">npm init vite@latest vue3router --template vue</span><br><span class="line"></span><br><span class="line">// 进入vue3router项目</span><br><span class="line">cd vue3router</span><br><span class="line"></span><br><span class="line">// 安装依赖</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">// 安装router</span><br><span class="line">npm install vue-router@4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>你的路径是什么，显示相对应组件<br><code>&lt;router-view&gt;&lt;/router-view&gt;</code></p>
+</li>
+<li><p>路径参数，根据id的不同，显示不同样式，另外:id是一个变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 路径:id写法</span><br><span class="line">&#123; path: &#x27;/users/:id&#x27;, component: User &#125;</span><br><span class="line"></span><br><span class="line">// 获取id</span><br><span class="line">$route.params.id</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>404页面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 设置404 notFound页面</span><br><span class="line">&#123; path:&quot;/:path(.*)&quot;, component:NotFound &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正则匹配与重复参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// :id仅匹配数字</span><br><span class="line">&#123; path:&quot;/article/:id(\\d+)&quot;, component:Article &#125;</span><br><span class="line"></span><br><span class="line">// +是至少会有1个参数</span><br><span class="line">// *是可有可没有，也可以任意多个</span><br><span class="line">// ？是有或者没有，不可以重复</span><br><span class="line">&#123; path:&quot;/films/:id?&quot;, component:Films &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>嵌套路由</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 不同用户显示不同内容</span><br><span class="line">// 这里:id表示  /user/123/xiaoming</span><br><span class="line">// 去掉:id表示  /user/xiaoming</span><br><span class="line">&#123;</span><br><span class="line">  path:&#x27;/user/:id&#x27;,</span><br><span class="line">  component:User,</span><br><span class="line">  children:[</span><br><span class="line">    &#123;</span><br><span class="line">      path:&#x27;xiaoming&#x27;,</span><br><span class="line">      component:XiaoMing</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path:&quot;xiaowang&quot;,</span><br><span class="line">      component:XiaoWang</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编程式导航</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// 声明式跳转页面，相当于调用router.push(...)</span><br><span class="line">&lt;router-link to=&quot;/about&quot;&gt;点我去about页面&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line">// 编程式跳转页面</span><br><span class="line">&lt;button @click=&quot;goPage&quot;&gt;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  goPage()&#123;</span><br><span class="line">    this.$router.push(&#123;path: &quot;/about&quot;&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 携带参数跳转，首先用name起个名，这样编程式函数以name来查找，跳转后显示news/123</span><br><span class="line">&#123;</span><br><span class="line">  name: &#x27;news&#x27;,</span><br><span class="line">  path: &#x27;/news/:id&#x27;,</span><br><span class="line">  components: News</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">this.$router.push(&#123;name: &quot;news&quot;, params: &#123;id:123&#125;&#125;)</span><br><span class="line"></span><br><span class="line">// 携带查询参数，比如百度搜索张三，路径会携带?wd=张三</span><br><span class="line">this.$router.push(&#123;path: &quot;/&quot;, query: &#123;wd: &quot;张三&quot;&#125;&#125;)</span><br><span class="line"></span><br><span class="line">// 替换页面</span><br><span class="line">this.$router.replace(...)</span><br><span class="line"></span><br><span class="line">// 前进页面</span><br><span class="line">router.go(1)</span><br><span class="line"></span><br><span class="line">// 后退页面</span><br><span class="line">router.go(-1)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命名路由</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// shop路径下组册3个组件，key与value相同，可以使用了ES6简写</span><br><span class="line">// key可以任意命名，只要router-view的name相同，就会加载名为ShopFooter的组件</span><br><span class="line">// alias是取别名，不论输入/shop还是/helloshop，但会进入相同页面，支持数组形式多个别名</span><br><span class="line">&#123;</span><br><span class="line">  path: &quot;/shop&quot;,</span><br><span class="line">  alias: [&quot;/helloshop&quot;, &quot;/hishop&quot;],</span><br><span class="line">  components: &#123;</span><br><span class="line">    default: ShopMain,</span><br><span class="line">    ShopTop,</span><br><span class="line">    ShopFooter01: ShopFooter</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;router-view name=&quot;ShopTop&quot;&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;router-view name=&quot;ShopFooter01&quot;&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重定向</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 用户输入/mall，会帮它修改成/shop进行跳转</span><br><span class="line">&#123;</span><br><span class="line">  path: &quot;/mall&quot;,</span><br><span class="line">  </span><br><span class="line">  // 下面两个结果是相同的，第一个写死，第二个动态修改</span><br><span class="line">  redirect: &quot;/shop&quot;</span><br><span class="line">  redirect: (to) =&gt; &#123; return &#123;path: &quot;/shop&quot;&#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>历史模式</p>
+<ul>
+<li>Hash模式：内部传递的实际URL之前使用了一个哈希字符(#)，由于这部分URL从未被发送到服务器，所以它不需要在服务器层面上进行任何特殊处理.它在SEO中确实有不好的影响<br><code>history:createWebHashHistory()</code></li>
+<li>HTML5模式：当使用这种历史模式时，URL会看起来很”正常”，例如<a target="_blank" rel="noopener external nofollow noreferrer" href="https://example.com/user/id">https://example.com/user/id</a><br><code>history:createWebHistory()</code></li>
+</ul>
+</li>
+<li><p>导航守卫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 全局前置守卫，就像你去某个页面会验证权限，通过执行next()，不通过执行return false</span><br><span class="line">// 第三个参数next作为可选</span><br><span class="line">router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">  // ...</span><br><span class="line">  // 返回 false 以取消导航</span><br><span class="line">  return false</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 组件内的守卫</span><br><span class="line">// beforeRouteEnter进入页面触发</span><br><span class="line">// beforeRouteUpdate更新页面触发</span><br><span class="line">// beforeRouteLeave离开页面触发</span><br><span class="line">beforeRouteEnter()&#123;</span><br><span class="line">  console.log(&#x27;路由进入组件&#x27;)</span><br><span class="line">&#125;,</span><br><span class="line">beforeRouteUpdate()&#123;</span><br><span class="line">  console.log(&#x27;路由更新组件&#x27;)</span><br><span class="line">&#125;,</span><br><span class="line">beforeRouteLeave()&#123;</span><br><span class="line">  console.log(&#x27;路由离开组件&#x27;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><ol>
+<li>安装axios<br><code>npm install axios --save</code></li>
+</ol>
+<h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><ol>
+<li><p>用vite构建工具生成vue项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 这是2021年用vite构建工具生成vue项目，项目名vue3vuex02</span><br><span class="line">npm init vite-app vue3vuex01</span><br><span class="line"></span><br><span class="line">// 注入依赖与运行项目</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>src目录下创建store文件夹，并在里面创建index.js<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &#123; reactive &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">const store = &#123;</span><br><span class="line">  state: reactive(&#123;</span><br><span class="line">    name: &#x27;张三&#x27;,</span><br><span class="line">    age: 9</span><br><span class="line">  &#125;),</span><br><span class="line">  setMessage(value)&#123;</span><br><span class="line">    this.state.message = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default store;</span><br></pre></td></tr></table></figure></li>
+<li>App.vue删除必要内容，导入store<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;HelloWorld/&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import HelloWorld from &#x27;./components/HelloWorld.vue&#x27;</span><br><span class="line">import store from &#x27;./store/index.js&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    HelloWorld</span><br><span class="line">  &#125;,</span><br><span class="line">  provide: &#123;</span><br><span class="line">    store</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>HelloWorld.vue文件，用inject注入store，然后调用store显示name、age<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;&#123;&#123;store.state.name&#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;h1&gt;&#123;&#123;store.state.age&#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;button @click=&quot;store.setName(&#x27;幽蓝&#x27;)&quot;&gt;点击修改名字&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;HelloWorld&#x27;,</span><br><span class="line">  inject: [&#x27;store&#x27;]</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>运行项目后，不报错能显示张三、9基本OK了</li>
+</ul>
+</li>
+<li><p>安装axios尝试玩一下免费API</p>
+<ul>
+<li>安装axios：<code>npm install axios --save</code></li>
+<li>store&#x2F;index.js<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import &#123; reactive &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">const store = &#123;</span><br><span class="line">  state: reactive(&#123;</span><br><span class="line">    sayingList: []</span><br><span class="line">  &#125;),</span><br><span class="line">  setSaying(list)&#123;</span><br><span class="line">    this.state.sayingList = list</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default store;</span><br></pre></td></tr></table></figure></li>
+<li>App.vue<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;p&gt;名言名句：&#123;&#123;store.state.sayingList&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import store from &#x27;./store/index.js&#x27;</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  provide: &#123;</span><br><span class="line">    store</span><br><span class="line">  &#125;,</span><br><span class="line">  setup()&#123;</span><br><span class="line">    let api = &#x27;https://api.apiopen.top/api/sentences&#x27;;</span><br><span class="line">    // 请求api获取数据，调用setSaying方法，将名言名句存到sayingList</span><br><span class="line">    axios.get(api).then((result)=&gt;&#123;</span><br><span class="line">      console.log(result)</span><br><span class="line">      store.setSaying(result.data.result.name)</span><br><span class="line">    &#125;)</span><br><span class="line">    return &#123;store&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>使用vue-cli生成vuex，获取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 给state添加name、age</span><br><span class="line">export default createStore(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    name: &#x27;幽蓝&#x27;,</span><br><span class="line">    age: 9</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  modules: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 组件读取name</span><br><span class="line">&lt;h1&gt;&#123;&#123;$store.state.name&#125;&#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">// 数据打印age</span><br><span class="line">mounted()&#123;</span><br><span class="line">  console.log(this.$store.state.age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 添加修改方法</span><br><span class="line">state: &#123;</span><br><span class="line">  name: &#x27;幽蓝&#x27;,</span><br><span class="line">  age: 9</span><br><span class="line">&#125;,</span><br><span class="line">mutations: &#123;</span><br><span class="line">  setName(state)&#123;</span><br><span class="line">    state.name = &#x27;幽蓝之家&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  setAge(state, num)&#123;</span><br><span class="line">    state.age += num;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 添加点击事件</span><br><span class="line">&lt;h1&gt;&#123;&#123;$store.state.name&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&#123;&#123;$store.state.age&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;button @click=&quot;changeNameEvent&quot;&gt;点击修改名字&lt;/button&gt;</span><br><span class="line">&lt;button @click=&quot;changeAgeEvent&quot;&gt;点击修改年龄&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">// 获取修改方法要用commit，可接收多个参数</span><br><span class="line">// 第一个参数是调用mutations下的函数</span><br><span class="line">// 第二个参数相当于调用函数的第二个参数，比如传数值3对应num</span><br><span class="line">methods: &#123;</span><br><span class="line">  changeNameEvent()&#123;</span><br><span class="line">    this.$store.commit(&#x27;setName&#x27;);</span><br><span class="line">  &#125;,</span><br><span class="line">  changeAgeEvent()&#123;</span><br><span class="line">    this.$store.commit(&#x27;setAge&#x27;, 3);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>异步写法<br>store&#x2F;index.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &#x27;vuex&#x27;</span><br><span class="line">// 安装axios然后导入axios</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line"></span><br><span class="line">export default createStore(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    sayingList: []</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    setSayingList(state, arr)&#123;</span><br><span class="line">      state.sayingList = arr;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    getSaying(context)&#123;</span><br><span class="line">      let api = &#x27;https://api.apiopen.top/api/sentences&#x27;;</span><br><span class="line">      // 使用commit调用mutations下的setSayingList方法</span><br><span class="line">      // 第二个参数是名言名句</span><br><span class="line">      axios.get(api).then((result)=&gt;&#123;</span><br><span class="line">        context.commit(&#x27;setSayingList&#x27;, result.data.result.name)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  modules: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>HelloWorld.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;&#123;&#123;$store.state.sayingList&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;HelloWorld&#x27;,</span><br><span class="line">  mounted()&#123;</span><br><span class="line">    // 使用dispatch调用actions下的getSaying方法</span><br><span class="line">    this.$store.dispatch(&#x27;getSaying&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vuex的5大核心属性</p>
+<ul>
+<li>state：写数据，类似data</li>
+<li>getters：写计算属性，类似computed</li>
+<li>mutations：修改状态方法，同步操作；调用commit</li>
+<li>actions：写异步，如果修改状态要用到异步，就不要写在上面了；调用dispatch</li>
+<li>modules：模块可以拥有自己的state、getters…类似setup</li>
+</ul>
+</li>
+<li><p>映射状态数据和方法，它是用来简化写法，不必每次写$store.state那么长一串</p>
+<ul>
+<li>mapState：写在computed里面</li>
+<li>mapGetters：computed</li>
+<li>mapMutations：methods</li>
+<li>mapActions：methods</li>
+</ul>
+</li>
+</ol>
+<p>store&#x2F;index.js文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &#x27;vuex&#x27;</span><br><span class="line"></span><br><span class="line">export default createStore(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    name: &#x27;张三&#x27;,</span><br><span class="line">    age: 9</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    takeAge(state)&#123;</span><br><span class="line">      return state.age * 100;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    setAge(state, num)&#123;</span><br><span class="line">      state.age += num;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    getActions()&#123;</span><br><span class="line">      console.log(&#x27;我是异步&#x27;)</span><br><span class="line">    &#125;,</span><br><span class="line">    setName()&#123;</span><br><span class="line">      this.state.name = &#x27;幽蓝&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  modules: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>先说mapState与mapGetters</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;&#123;&#123;name&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&#123;&#123;outlaws&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&#123;&#123;takeAge&#125;&#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">import &#123; mapState, mapGetters &#125; from &#x27;vuex&#x27;</span><br><span class="line"></span><br><span class="line">computed: &#123;</span><br><span class="line">  // 数组内填入想解构出来的数据</span><br><span class="line">  ...mapState([&#x27;name&#x27;, &#x27;age&#x27;]),</span><br><span class="line">  </span><br><span class="line">  // 如果你担心name重复，可以起别名，像是取outlaws(法外狂徒)，别名太适合张三了！</span><br><span class="line">  ...mapState(&#123;</span><br><span class="line">    outlaws:(state)=&gt;state.name</span><br><span class="line">  &#125;),</span><br><span class="line">  </span><br><span class="line">  // takeAge是返回计算结果</span><br><span class="line">  ...mapGetters([&#x27;takeAge&#x27;])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>mapMutations与mapActions</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;&#123;&#123;age&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;button @click=&quot;setAge(5)&quot;&gt;点我修改年龄&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">import &#123; mapState, mapMutations, mapActions &#125; from &#x27;vuex&#x27;</span><br><span class="line"></span><br><span class="line">computed: &#123;</span><br><span class="line">  ...mapState([&#x27;age&#x27;]),</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  // 数组内填入想解构出来的方法</span><br><span class="line">  ...mapMutations([&#x27;setAge&#x27;]),</span><br><span class="line">  ...mapActions([&#x27;getActions&#x27;])</span><br><span class="line">&#125;,</span><br><span class="line">mounted()&#123;</span><br><span class="line">  // 下面两个都能打印出&#x27;我是异步&#x27;</span><br><span class="line">  this.$store.dispatch(&#x27;getActions&#x27;);</span><br><span class="line">  this.getActions();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>模块化modules</li>
+</ol>
+<p>未完待续…</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/cover_vueJS.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/reward_wechat.webp" target="_blank"><img class="post-qr-code-img" src="/img/reward_wechat.webp" alt="微信扫一扫"/></a><div class="post-qr-code-desc">微信扫一扫</div></li><li class="reward-item"><a href="/img/reward_alipay.webp" target="_blank"><img class="post-qr-code-img" src="/img/reward_alipay.webp" alt="支付宝扫一扫"/></a><div class="post-qr-code-desc">支付宝扫一扫</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/284b2c05.html"><img class="prev-cover" src="/img/cover_freecodecamp.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">freecodecamp练习</div></div></a></div><div class="next-post pull-right"><a href="/archives/fce06ce7.html"><img class="next-cover" src="/img/cover_vuePractise.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">vue项目练习</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NTk5My8zMjQ1Ng=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">使用体验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%88%9B%E5%BB%BAhello-world%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.</span> <span class="toc-text">安装过程与创建hello-world项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E6%8C%87%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">vue指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">vue方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#class%E4%B8%8Estyle%E7%BB%91%E5%AE%9A"><span class="toc-number">5.</span> <span class="toc-text">class与style绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E4%BC%A0%E5%80%BC%E4%B8%8E%E5%A4%9A%E4%B8%AA%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">事件传值与多个处理函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">7.</span> <span class="toc-text">修饰符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA"><span class="toc-number">8.</span> <span class="toc-text">父子组件导入导出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#props"><span class="toc-number">9.</span> <span class="toc-text">props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-number">10.</span> <span class="toc-text">生命周期函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E5%BC%8FAPI"><span class="toc-number">11.</span> <span class="toc-text">组合式API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">12.</span> <span class="toc-text">路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#axios"><span class="toc-number">13.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex"><span class="toc-number">14.</span> <span class="toc-text">vuex</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: rgb(105, 105, 105)"><div id="footer-wrap"><div class="copyright">&copy;2022 By 幽蓝</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">The purpose of life is to enjoy every moment🍺</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

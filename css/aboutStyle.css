@@ -1,0 +1,32 @@
+.center {
+    text-align: center;
+}
+.bold {
+    font-weight: bold;
+}
+.p25 {
+    font-size: 25px;
+}
+h2 {
+    color: #49b1f5;
+}
+th {
+    display: none;
+}
+td {
+    border-bottom-width: 1px;
+}
+td:first-child {
+    width: 130px;
+    font-weight: 700;
+    color: #46b7b9;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 3px solid #ddd;
+    border-right: 1px solid #eee;
+}
+li {
+    list-style-type: circle;
+}
